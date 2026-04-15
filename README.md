@@ -8,9 +8,9 @@ The goal of this guide is to help developers move beyond the default UI and buil
 
 This guide is divided into separate documents, each focusing on a specific customization area:
 
-1. Add **Tailwind CSS** to ABP Angular  
-2. Add **PrimeNG** to ABP Angular  
-3. Replace the **ABP Default Theme**  
+1. Add **Tailwind CSS** to ABP Angular  ([Read](./docs/add-tailwind-css-to-abp-angular.md))
+2. Add **PrimeNG** to ABP Angular  ([Read](./docs/add-primeng-to-abp-angular.md))
+3. Replace the **ABP Default Theme**  ([Read](./docs/replace-abp-theme-with-custom-theme.md))
 
 Each topic is explained in separate, detailed documents, so you can follow them independently or in any order.
 
@@ -69,12 +69,42 @@ abp install-libs
 - Run the `.DbMigrator` project to apply database migrations and run the  `.HttpApi.Host` project.
 - Start the Angular application (`ng serve` or `yarn start` inside the angular folder)
 
-## 📂 Structure of This Repository
+## Structure of This Repository
 
-Each topic is documented separately for clarity and scalability:
+Each topic is documented separately for clarity and scalability. Every guide includes its own **independent Angular project**, allowing you to experiment without affecting other setups.
+
 ```
-docs/
-├── tailwind-integration.md
-├── primeng-integration.md
-├── theme-replacement.md
+├── Acme.BookStore
+│ ├── angulars
+│ │ ├── tailwind-demo
+│ │ ├── primeng-demo
+│ │ ├── theme-replacement-demo
+│ │ └── ...
+│ │
+│ ├── src
+│ │ ├── Acme.BookStore.Application
+│ │ ├── Acme.BookStore.Application.Contracts
+│ │ ├── Acme.BookStore.DbMigrator
+│ │ ├── Acme.BookStore.Domain
+│ │ ├── Acme.BookStore.Domain.Shared
+│ │ ├── Acme.BookStore.EntityFrameworkCore
+│ │ ├── Acme.BookStore.HttpApi
+│ │ ├── Acme.BookStore.HttpApi.Client
+│ │ └── Acme.BookStore.HttpApi.Host
+│ │
+│ ├── test
+│ └── Acme.BookStore.slnx
+│
+├── docs
+│ ├── tailwind-integration.md
+│ ├── primeng-integration.md
+│ └── theme-replacement.md
+│
+└── README.md
 ```
+All Angular projects are organized under a single `angulars` folder. To create this structure:
+- Create a folder named `angulars` inside the `Acme.BookStore` directory.
+- Copy the default Angular project into `angulars`.
+- Rename it based on the specific guide.
+
+Each project is completely independent and used only for its corresponding documentation.
